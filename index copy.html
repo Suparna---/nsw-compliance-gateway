@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSW Regulatory Services | Commercial Compliance Gateway</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Public Sans', system-ui, -apple-system, sans-serif; }
+    .font-mono-code { font-family: 'Space Mono', monospace; }
+  </style>
+</head>
+<body class="bg-[#F2F4F8] text-[#002664] min-h-screen flex flex-col antialiased selection:bg-[#002664] selection:text-white">
+
+  <!-- Top Official State Banner -->
+  <aside class="bg-[#002664] text-white text-xs py-2 px-4 sm:px-8 border-b border-[#001944]">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2 font-medium">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#E58300]"></span>
+        <span>A New South Wales Government Service</span>
+      </div>
+      <div class="text-gray-300 text-[11px] hidden sm:block">Digital Compliance & Licensing Gateway</div>
+    </div>
+  </aside>
+
+  <!-- Global Header -->
+  <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 bg-[#002664] text-white flex items-center justify-center font-black text-lg rounded-sm tracking-tight shadow-sm">
+          NSW
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight text-[#002664] leading-tight">
+            Commercial Trade Authorisations
+          </h1>
+          <p class="text-xs text-gray-500">Regulated under the <span class="font-medium text-gray-700">Commercial Licensing & Safety Act 2024 (NSW)</span></p>
+        </div>
+      </div>
+      <div class="hidden md:flex flex-col items-end text-xs">
+        <span class="text-gray-400 font-medium">Lodgement Reference</span>
+        <span class="font-mono-code font-bold text-[#002664]">NSW-2026-REG-8821</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stepper Breadcrumb Header -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 py-3.5">
+      <nav aria-label="Progress">
+        <ol class="flex items-center justify-between text-xs font-semibold sm:justify-start sm:space-x-8">
+          
+          <li class="flex items-center gap-2 cursor-pointer" onclick="goToStep(1)" id="step-indicator-1">
+            <span class="w-6 h-6 rounded-full bg-[#002664] text-white flex items-center justify-center text-xs font-bold ring-4 ring-blue-100" id="badge-1">1</span>
+            <span class="text-[#002664] font-bold" id="label-1">Identity</span>
+          </li>
+          
+          <li class="text-gray-300">/</li>
+
+          <li class="flex items-center gap-2 cursor-pointer" onclick="goToStep(2)" id="step-indicator-2">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center text-xs font-bold" id="badge-2">2</span>
+            <span class="text-gray-400 font-medium" id="label-2">Eligibility</span>
+          </li>
+
+          <li class="text-gray-300">/</li>
+
+          <li class="flex items-center gap-2 cursor-pointer" onclick="goToStep(3)" id="step-indicator-3">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center text-xs font-bold" id="badge-3">3</span>
+            <span class="text-gray-400 font-medium" id="label-3">Evidence</span>
+          </li>
+
+          <li class="text-gray-300">/</li>
+
+          <li class="flex items-center gap-2 cursor-pointer" onclick="goToStep(4)" id="step-indicator-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center text-xs font-bold" id="badge-4">4</span>
+            <span class="text-gray-400 font-medium" id="label-4">Declaration</span>
+          </li>
+
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Application Body -->
+  <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-8 py-8 w-full">
+
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sm:p-10">
+
+      <!-- ========================================================== -->
+      <!-- STEP 1: IDENTITY & ENTITY VERIFICATION                     -->
+      <!-- ========================================================== -->
+      <section id="step-1" class="block space-y-6">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-widest text-[#E58300]">Step 1 of 4</span>
+          <h2 class="text-2xl font-bold text-[#002664] mt-1">Trading Entity Identification</h2>
+          <p class="text-sm text-gray-600 mt-1">
+            Provide your registered Australian business details to verify your eligibility on the Australian Business Register (ABR).
+          </p>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-[#002664] p-4 text-xs text-gray-700 leading-relaxed rounded-r">
+          <strong>Notice:</strong> Only actively registered Australian businesses (ABN/ACN) with active status may submit statutory trade declarations under Part 2 of the Regulations.
+        </div>
+
+        <div class="space-y-4 pt-2">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" for="abn-input">
+              Australian Business Number (ABN) or ACN <span class="text-red-600">*</span>
+            </label>
+            <div class="flex gap-3 max-w-md">
+              <input 
+                type="text" 
+                id="abn-input" 
+                placeholder="51 824 753 556" 
+                value="51 824 753 556"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#002664] font-mono-code"
+              >
+              <button 
+                type="button" 
+                onclick="verifyABN()" 
+                class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-xs font-bold rounded text-[#002664] transition-colors whitespace-nowrap"
+              >
+                Verify ABR
+              </button>
+            </div>
+            <p id="abn-status" class="text-xs text-emerald-700 font-medium mt-1.5 flex items-center gap-1">
+              <span>✓</span> ABR Record Active: NSW INFRASTRUCTURE GROUP PTY LTD (Valid)
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" for="contact-name">
+                Authorised Representative Full Name <span class="text-red-600">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="contact-name" 
+                value="Suparna Ghosh" 
+                class="w-full px-4 py-2.5 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-[#002664] focus:outline-none"
+              >
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" for="contact-email">
+                Official Business Email <span class="text-red-600">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="contact-email" 
+                value="compliance@nsw-infrastructure.com.au" 
+                class="w-full px-4 py-2.5 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-[#002664] focus:outline-none"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="pt-8 border-t border-gray-200 flex justify-end">
+          <button 
+            type="button" 
+            onclick="goToStep(2)" 
+            class="w-full sm:w-auto px-6 py-2.5 bg-[#002664] hover:bg-[#001944] text-white text-xs font-bold rounded shadow-sm transition-colors"
+          >
+            Confirm & Proceed to Eligibility →
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ========================================================== -->
+      <!-- STEP 2: LEGISLATIVE DETERMINATION & PROGRESSIVE DISCLOSURE  -->
+      <!-- ========================================================== -->
+      <section id="step-2" class="hidden space-y-6">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-widest text-[#E58300]">Step 2 of 4</span>
+          <h2 class="text-2xl font-bold text-[#002664] mt-1">Legislative Determination</h2>
+          <p class="text-sm text-gray-600 mt-1">
+            Answer the statutory threshold question under Section 14(A) to establish your assessment requirements.
+          </p>
+        </div>
+
+        <!-- Plain English & Collapsible Law Reference -->
+        <div class="bg-gray-50 border border-gray-200 rounded-md p-4">
+          <button 
+            type="button" 
+            onclick="toggleStatuteBox()" 
+            class="flex items-center justify-between w-full text-left text-xs font-semibold text-[#002664] hover:underline"
+            id="statute-toggle-btn"
+          >
+            <span class="flex items-center gap-1.5">
+              <span id="chevron-icon">▸</span> View exact legislative definition (Section 14A, Schedule 3)
+            </span>
+            <span class="text-gray-400 font-normal">NSW Legislation</span>
+          </button>
+          <div id="statute-details" class="hidden mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600 font-mono-code leading-relaxed bg-white p-3 rounded">
+            "High-risk plant refers to any mobile crane exceeding 10 tonnes rated capacity, tower hoists operating over public walkways, or pressurized vessels (>50 kPa) operated within urban metropolitan corridors under Part 4, Division 2."
+          </div>
+        </div>
+
+        <!-- Question -->
+        <div class="space-y-4">
+          <label class="block text-base font-bold text-[#002664]">
+            Does your proposed business operation involve high-risk mechanical plant operations?
+          </label>
+          <p class="text-xs text-gray-500">
+            Select the option reflecting your direct site work within the designated operational window.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <label class="flex items-start p-4 border-2 rounded-md cursor-pointer transition-all border-gray-200 hover:border-gray-300" id="opt-yes">
+              <input type="radio" name="plant_determination" value="yes" checked class="mt-1 text-[#002664] focus:ring-[#002664]" onchange="handleDetermination('yes')">
+              <div class="ml-3">
+                <span class="block text-sm font-bold text-gray-900">Yes — High-risk machinery involved</span>
+                <span class="block text-xs text-gray-500 mt-0.5">Mandatory engineering certificates required in Step 3.</span>
+              </div>
+            </label>
+
+            <label class="flex items-start p-4 border-2 rounded-md cursor-pointer transition-all border-gray-200 hover:border-gray-300" id="opt-no">
+              <input type="radio" name="plant_determination" value="no" class="mt-1 text-[#002664] focus:ring-[#002664]" onchange="handleDetermination('no')">
+              <div class="ml-3">
+                <span class="block text-sm font-bold text-gray-900">No — Standard commercial equipment only</span>
+                <span class="block text-xs text-gray-500 mt-0.5">Fast-track direct statutory self-declaration.</span>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Dynamic Guidance Box -->
+        <div id="determination-alert" class="p-4 rounded-md text-xs leading-relaxed bg-amber-50 border border-amber-300 text-amber-900">
+          <strong>Mandatory Evidence Path:</strong> Because your work involves high-risk machinery, you must attach an accredited Inspector Safety Certificate and Public Liability Insurance in the next step.
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="pt-8 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-center gap-3">
+          <button type="button" onclick="goToStep(1)" class="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold text-gray-600 hover:text-gray-900">
+            ← Back to Step 1
+          </button>
+          <button type="button" onclick="goToStep(3)" class="w-full sm:w-auto px-6 py-2.5 bg-[#002664] hover:bg-[#001944] text-white text-xs font-bold rounded shadow-sm">
+            Save & Continue to Evidence →
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ========================================================== -->
+      <!-- STEP 3: DOCUMENT EVIDENCE & REAL TIME UPLOAD               -->
+      <!-- ========================================================== -->
+      <section id="step-3" class="hidden space-y-6">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-widest text-[#E58300]">Step 3 of 4</span>
+          <h2 class="text-2xl font-bold text-[#002664] mt-1">Evidence of Regulatory Compliance</h2>
+          <p class="text-sm text-gray-600 mt-1" id="evidence-subtitle">
+            Select the supporting evidence you are submitting. Attached documents are indexed immediately to your lodgement ID.
+          </p>
+        </div>
+
+        <!-- Standard route skip indicator -->
+        <div id="no-docs-needed" class="hidden p-5 bg-emerald-50 border border-emerald-300 rounded-md text-xs text-emerald-950">
+          <div class="font-bold text-sm mb-1">✓ Fast-Track Exemption Applied</div>
+          <p>Since your operations do not use high-risk machinery, external plant certificates are waived. You may proceed straight to Step 4 for your statutory declaration.</p>
+        </div>
+
+        <!-- Evidence Checklist -->
+        <div id="docs-list" class="space-y-4">
+          
+          <!-- Document 1: Inspector Cert -->
+          <div class="border border-gray-200 rounded-md p-4 bg-gray-50/50">
+            <div class="flex items-start justify-between">
+              <label class="flex items-start cursor-pointer">
+                <input type="checkbox" id="chk-plant" checked class="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#002664]" onchange="toggleDropzone('plant')">
+                <div class="ml-3">
+                  <span class="text-xs font-bold text-gray-900 block">Plant Inspector Safety Clearance Certificate</span>
+                  <span class="text-[11px] text-gray-500 block">Accredited NSW SafeWork independent engineering inspection report (within 12 months).</span>
+                </div>
+              </label>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-blue-100 text-[#002664] rounded">Primary</span>
+            </div>
+
+            <div id="drop-plant" class="mt-3 pt-3 border-t border-gray-200">
+              <div class="border-2 border-dashed border-gray-300 rounded-md p-4 text-center hover:border-[#002664] bg-white transition-colors cursor-pointer">
+                <input type="file" id="file-plant" class="hidden" onchange="handleFileUpload('plant', 'SafeWork_Safety_Clearance_2026.pdf', this)">
+                <label for="file-plant" class="cursor-pointer text-xs">
+                  <span class="font-semibold text-[#002664]">Click to upload document</span> or drag & drop
+                  <p class="text-[10px] text-gray-400 mt-0.5">PDF, PNG, JPG (max 15MB)</p>
+                </label>
+              </div>
+              <div id="status-plant" class="mt-2 text-xs text-emerald-700 font-medium flex items-center justify-between">
+                <span>✓ Attached: <strong>SafeWork_Safety_Clearance_2026.pdf</strong> (1.42 MB)</span>
+                <span class="text-[10px] text-gray-400 font-mono-code">Status: Validated</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Document 2: Liability Insurance -->
+          <div class="border border-gray-200 rounded-md p-4 bg-gray-50/50">
+            <div class="flex items-start justify-between">
+              <label class="flex items-start cursor-pointer">
+                <input type="checkbox" id="chk-insurance" checked class="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#002664]" onchange="toggleDropzone('insurance')">
+                <div class="ml-3">
+                  <span class="text-xs font-bold text-gray-900 block">Public Liability Insurance (Certificate of Currency)</span>
+                  <span class="text-[11px] text-gray-500 block">Minimum AU $20,000,000 policy coverage mentioning NSW jurisdiction.</span>
+                </div>
+              </label>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-blue-100 text-[#002664] rounded">Primary</span>
+            </div>
+
+            <div id="drop-insurance" class="mt-3 pt-3 border-t border-gray-200">
+              <div class="border-2 border-dashed border-gray-300 rounded-md p-4 text-center hover:border-[#002664] bg-white transition-colors cursor-pointer">
+                <input type="file" id="file-insurance" class="hidden" onchange="handleFileUpload('insurance', 'QBE_Policy_20M_Currency.pdf', this)">
+                <label for="file-insurance" class="cursor-pointer text-xs">
+                  <span class="font-semibold text-[#002664]">Click to upload document</span> or drag & drop
+                  <p class="text-[10px] text-gray-400 mt-0.5">PDF, PNG, JPG (max 15MB)</p>
+                </label>
+              </div>
+              <div id="status-insurance" class="mt-2 text-xs text-emerald-700 font-medium flex items-center justify-between">
+                <span>✓ Attached: <strong>QBE_Policy_20M_Currency.pdf</strong> (890 KB)</span>
+                <span class="text-[10px] text-gray-400 font-mono-code">Status: Validated</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Document 3: Optional SWMS -->
+          <div class="border border-gray-200 rounded-md p-4 bg-gray-50/50">
+            <div class="flex items-start justify-between">
+              <label class="flex items-start cursor-pointer">
+                <input type="checkbox" id="chk-swms" class="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#002664]" onchange="toggleDropzone('swms')">
+                <div class="ml-3">
+                  <span class="text-xs font-bold text-gray-900 block">Safe Work Method Statement (SWMS)</span>
+                  <span class="text-[11px] text-gray-500 block">Applicable if machinery is operating within 10 metres of high-density pedestrian thoroughfares.</span>
+                </div>
+              </label>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-gray-100 text-gray-600 rounded">Conditional</span>
+            </div>
+
+            <div id="drop-swms" class="hidden mt-3 pt-3 border-t border-gray-200">
+              <div class="border-2 border-dashed border-gray-300 rounded-md p-4 text-center hover:border-[#002664] bg-white transition-colors cursor-pointer">
+                <input type="file" id="file-swms" class="hidden" onchange="handleFileUpload('swms', '', this)">
+                <label for="file-swms" class="cursor-pointer text-xs">
+                  <span class="font-semibold text-[#002664]">Click to upload document</span> or drag & drop
+                  <p class="text-[10px] text-gray-400 mt-0.5">PDF, PNG, JPG (max 15MB)</p>
+                </label>
+              </div>
+              <div id="status-swms" class="hidden mt-2 text-xs text-emerald-700 font-medium flex items-center justify-between"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="pt-8 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-center gap-3">
+          <button type="button" onclick="goToStep(2)" class="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold text-gray-600 hover:text-gray-900">
+            ← Back to Step 2
+          </button>
+          <button type="button" onclick="goToStep(4)" class="w-full sm:w-auto px-6 py-2.5 bg-[#002664] hover:bg-[#001944] text-white text-xs font-bold rounded shadow-sm">
+            Proceed to Legal Declaration →
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ========================================================== -->
+      <!-- STEP 4: STATUTORY DECLARATION & FORMAL LODGEMENT           -->
+      <!-- ========================================================== -->
+      <section id="step-4" class="hidden space-y-6">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-widest text-[#E58300]">Step 4 of 4</span>
+          <h2 class="text-2xl font-bold text-[#002664] mt-1">Statutory Declaration & Submission</h2>
+          <p class="text-sm text-gray-600 mt-1">
+            Review your submission summary and make the formal statutory declaration under the <em>Oaths Act 1900 (NSW)</em>.
+          </p>
+        </div>
+
+        <!-- Lodgement Summary Manifest -->
+        <div class="bg-gray-50 border border-gray-200 rounded p-4 text-xs space-y-2">
+          <div class="font-bold text-[#002664] uppercase tracking-wider text-[11px] mb-2">Lodgement Record Summary</div>
+          <div class="flex justify-between py-1 border-b border-gray-200">
+            <span class="text-gray-500">Applicant Entity:</span>
+            <span class="font-bold text-gray-900">NSW INFRASTRUCTURE GROUP PTY LTD (ABN 51 824 753 556)</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-gray-200">
+            <span class="text-gray-500">Risk Assessment Track:</span>
+            <span class="font-bold text-gray-900" id="summary-risk">Section 14A High-Risk Machinery (Schedule 3)</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-gray-500">Verified Evidence Uploaded:</span>
+            <span class="font-bold text-emerald-700" id="summary-docs">2 Documents Stored & Indexed</span>
+          </div>
+        </div>
+
+        <!-- Statutory Legal Undertaking -->
+        <div class="border border-red-200 bg-red-50/40 p-5 rounded-md space-y-3">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="legal-check" class="mt-1 h-4 w-4 rounded border-gray-300 text-[#002664]">
+            <label for="legal-check" class="text-xs text-gray-800 leading-relaxed cursor-pointer">
+              I, <strong class="text-gray-900">Suparna Ghosh</strong>, solemnly and sincerely declare that all information and attached documents provided in this application are true and correct. I understand that providing false or misleading statements under Section 42 of the <em>Commercial Licensing & Safety Act 2024</em> is a criminal offence carrying penalties of up to $22,000 AUD or 12 months imprisonment.
+            </label>
+          </div>
+        </div>
+
+        <!-- Electronic Signature -->
+        <div class="max-w-md">
+          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" for="sig-name">
+            Digital Signature (Type Full Legal Name) <span class="text-red-600">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="sig-name" 
+            placeholder="Suparna Ghosh" 
+            class="w-full px-4 py-2.5 border border-gray-300 rounded text-sm font-mono-code focus:ring-2 focus:ring-[#002664] focus:outline-none"
+          >
+          <p class="text-[11px] text-gray-400 mt-1">Applying an electronic signature under the Electronic Transactions Act 2000 (NSW).</p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="pt-8 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-center gap-3">
+          <button type="button" onclick="goToStep(3)" class="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold text-gray-600 hover:text-gray-900">
+            ← Back to Step 3
+          </button>
+          <button 
+            type="button" 
+            onclick="submitFinalApplication()" 
+            class="w-full sm:w-auto px-8 py-3 bg-[#002664] hover:bg-[#001944] text-white text-xs font-black uppercase tracking-wider rounded shadow-md transition-all hover:translate-y-[-1px]"
+          >
+            Submit Application Lodgement ✓
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ========================================================== -->
+      <!-- SUCCESS CONFIRMATION RECEIPT (SHOWN AFTER SUBMISSION)      -->
+      <!-- ========================================================== -->
+      <section id="step-success" class="hidden text-center py-10 space-y-6">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-2xl font-bold mx-auto">
+          ✓
+        </div>
+
+        <div class="space-y-2">
+          <span class="text-xs uppercase font-bold tracking-widest text-emerald-700">Official Lodgement Registered</span>
+          <h2 class="text-3xl font-black text-[#002664]">Compliance Notice Issued</h2>
+          <p class="text-sm text-gray-600 max-w-lg mx-auto">
+            Your statutory declaration has been formally ingested by the NSW Regulatory Authority. A confirmation copy has been dispatched to your email.
+          </p>
+        </div>
+
+        <div class="max-w-md mx-auto bg-gray-50 border border-gray-200 rounded p-6 text-left font-mono-code text-xs space-y-2.5">
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span class="text-gray-500">Notice Number:</span>
+            <span class="font-bold text-[#002664]">NSW-2026-APP-9941</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span class="text-gray-500">Date Timestamp:</span>
+            <span class="text-gray-700" id="success-time"></span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span class="text-gray-500">Status:</span>
+            <span class="text-emerald-700 font-bold">CLEARANCE APPROVED (TIER 1)</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500">Audit Check:</span>
+            <span class="text-gray-700">COMPLIANT (Oaths Act 1900)</span>
+          </div>
+        </div>
+
+        <div class="pt-4 flex flex-wrap justify-center gap-3">
+          <button type="button" onclick="window.print()" class="px-5 py-2.5 border border-gray-300 hover:bg-gray-100 text-xs font-semibold text-gray-700 rounded">
+            Print Official Receipt (PDF)
+          </button>
+          <button type="button" onclick="location.reload()" class="px-5 py-2.5 bg-[#002664] hover:bg-[#001944] text-xs font-bold text-white rounded">
+            Submit Another Application
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="bg-[#001944] text-gray-300 text-xs py-8 px-4 sm:px-8 mt-12 border-t border-blue-950">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <p class="text-white font-bold">NSW Department of Customer Service</p>
+        <p class="text-gray-400 text-[11px] mt-0.5">Designed according to NSW Design System & WCAG 2.2 Level AA</p>
+      </div>
+      <div class="flex gap-6 text-[11px] text-gray-400">
+        <span>NSW Privacy Statement</span>
+        <span>Accessibility Standard</span>
+        <span>Legislation Hub</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single-Page Application Interactive Engine -->
+  <script>
+    let currentStep = 1;
+    let highRiskSelected = true;
+
+    // STEP TRANSITION LOGIC
+    function goToStep(stepNumber) {
+      if (stepNumber < 1 || stepNumber > 4) return;
+      currentStep = stepNumber;
+
+      // Hide all step sections
+      for (let i = 1; i <= 4; i++) {
+        const sec = document.getElementById(`step-${i}`);
+        if (sec) sec.classList.add('hidden');
+      }
+      document.getElementById('step-success').classList.add('hidden');
+
+      // Show requested step
+      document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+
+      // Update stepper breadcrumb UI
+      for (let i = 1; i <= 4; i++) {
+        const badge = document.getElementById(`badge-${i}`);
+        const label = document.getElementById(`label-${i}`);
+
+        if (i < stepNumber) {
+          // Completed step
+          badge.className = 'w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold';
+          badge.innerHTML = '✓';
+          label.className = 'text-emerald-800 font-semibold';
+        } else if (i === stepNumber) {
+          // Active step
+          badge.className = 'w-6 h-6 rounded-full bg-[#002664] text-white flex items-center justify-center text-xs font-bold ring-4 ring-blue-100';
+          badge.innerHTML = i;
+          label.className = 'text-[#002664] font-bold';
+        } else {
+          // Upcoming step
+          badge.className = 'w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center text-xs font-bold';
+          badge.innerHTML = i;
+          label.className = 'text-gray-400 font-medium';
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // STEP 1: ABN VERIFY SIMULATOR
+    function verifyABN() {
+      const status = document.getElementById('abn-status');
+      status.innerHTML = `<span class="animate-spin">⏳</span> Querying Australian Business Register...`;
+      setTimeout(() => {
+        status.innerHTML = `<span>✓</span> ABR Record Active: NSW INFRASTRUCTURE GROUP PTY LTD (Valid)`;
+      }, 500);
+    }
+
+    // STEP 2: LEGISLATIVE DETERMINATION LOGIC
+    function toggleStatuteBox() {
+      const details = document.getElementById('statute-details');
+      const chevron = document.getElementById('chevron-icon');
+      const isHidden = details.classList.contains('hidden');
+
+      if (isHidden) {
+        details.classList.remove('hidden');
+        chevron.textContent = '▾';
+      } else {
+        details.classList.add('hidden');
+        chevron.textContent = '▸';
+      }
+    }
+
+    function handleDetermination(value) {
+      const alertBox = document.getElementById('determination-alert');
+      const optYes = document.getElementById('opt-yes');
+      const optNo = document.getElementById('opt-no');
+      const docsList = document.getElementById('docs-list');
+      const noDocsNeeded = document.getElementById('no-docs-needed');
+      const summaryRisk = document.getElementById('summary-risk');
+      const summaryDocs = document.getElementById('summary-docs');
+
+      if (value === 'yes') {
+        highRiskSelected = true;
+        optYes.classList.add('border-[#002664]', 'bg-blue-50/20');
+        optNo.classList.remove('border-[#002664]', 'bg-blue-50/20');
+        alertBox.className = 'p-4 rounded-md text-xs leading-relaxed bg-amber-50 border border-amber-300 text-amber-900';
+        alertBox.innerHTML = '<strong>Mandatory Evidence Path:</strong> Because your work involves high-risk machinery, you must attach an accredited Inspector Safety Certificate and Public Liability Insurance in the next step.';
+        
+        docsList.classList.remove('hidden');
+        noDocsNeeded.classList.add('hidden');
+        summaryRisk.textContent = 'Section 14A High-Risk Machinery (Schedule 3)';
+        summaryDocs.textContent = '2 Documents Stored & Indexed';
+      } else {
+        highRiskSelected = false;
+        optNo.classList.add('border-[#002664]', 'bg-blue-50/20');
+        optYes.classList.remove('border-[#002664]', 'bg-blue-50/20');
+        alertBox.className = 'p-4 rounded-md text-xs leading-relaxed bg-emerald-50 border border-emerald-300 text-emerald-900';
+        alertBox.innerHTML = '<strong>Fast-Track Determination:</strong> No high-risk machinery involved. Standard statutory declaration applies; independent engineering certificates are waived.';
+        
+        docsList.classList.add('hidden');
+        noDocsNeeded.classList.remove('hidden');
+        summaryRisk.textContent = 'Standard Operations (Exempt from Schedule 3)';
+        summaryDocs.textContent = 'Exempt (Direct Declaration)';
+      }
+    }
+
+    // STEP 3: DYNAMIC UPLOAD EXPANSIONS
+    function toggleDropzone(key) {
+      const chk = document.getElementById(`chk-${key}`);
+      const drop = document.getElementById(`drop-${key}`);
+      drop.classList.toggle('hidden', !chk.checked);
+    }
+
+    function handleFileUpload(key, defaultName, input) {
+      const statusBox = document.getElementById(`status-${key}`);
+      statusBox.classList.remove('hidden');
+      
+      const fileName = input.files[0] ? input.files[0].name : defaultName;
+      const fileSize = input.files[0] ? (input.files[0].size / 1024 / 1024).toFixed(2) + ' MB' : '1.20 MB';
+
+      statusBox.innerHTML = `
+        <span>✓ Attached: <strong>${fileName}</strong> (${fileSize})</span>
+        <span class="text-[10px] text-gray-400 font-mono-code">Status: Validated</span>
+      `;
+    }
+
+    // STEP 4: FINAL SUBMISSION ENGINE
+    function submitFinalApplication() {
+      const legalCheck = document.getElementById('legal-check');
+      const sigName = document.getElementById('sig-name').value.trim();
+
+      if (!legalCheck.checked) {
+        alert('You must accept the legal statutory declaration under the Oaths Act 1900 to submit.');
+        return;
+      }
+      if (!sigName) {
+        alert('Please provide your digital signature name.');
+        return;
+      }
+
+      // Hide steps and display official confirmation receipt
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`step-${i}`).classList.add('hidden');
+      }
+      
+      const successSec = document.getElementById('step-success');
+      successSec.classList.remove('hidden');
+      document.getElementById('success-time').textContent = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' }) + ' AEST';
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
